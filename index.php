@@ -2,4 +2,5 @@
 require 'Modele.php';
 $billets=getBillets();   
 // Affichage
-include 'vueAcceuil.php' ;
+$contenu = 'vueAcceuil.php' ;
+require 'gabarit.php';
