@@ -12,3 +12,16 @@
                             . ' order by idBillet desc');
                     return $billets;
                 }
+
+                function getBillet(){
+                    $bdd = getBdD();
+                    $billet = $bdd->query('select idBillet');
+                    return $billet;
+                }
+
+                function getCommentaires(){
+                    $bdd = getBdD();
+                    $commentaires = $bdd->query('select idCommentaire, auteurCommentaire,'
+                            . ' contenuCommentaire, idBillet');
+                    return $commentaires;
+                }
