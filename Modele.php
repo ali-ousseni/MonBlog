@@ -22,6 +22,7 @@
                 function getCommentaires(){
                     $bdd = getBdD();
                     $commentaires = $bdd->query('select idCommentaire as id, auteurCommentaire as auteur,'
-                            . ' contenuCommentaire as contenu, idBillet as billet from Commentaire');
+                            . ' contenuCommentaire as contenu, idBillet as billet from Commentaire c'
+                            .'inner join Billet b on c.idCommentaire = b.idBillet');
                     return $commentaires;
                 }
