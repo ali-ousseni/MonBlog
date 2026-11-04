@@ -1,8 +1,10 @@
-<?php
-    include 'header.php' ;
-    require_once 'models/gestionBdD.php' ;
-    $billets = getBillets();
-?>
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" href="style.css" />
+        <title>Mon Blog</title>
+    </head>
     <body>
         <div id="global">
             <header>
@@ -11,6 +13,10 @@
             </header>
             <div id="contenu">
                 <?php
+                $bdd = new PDO('mysql:host=localhost;dbname=monblog;charset=utf8','root', '');
+                $billets = $bdd->query('select idBillet as id, dateBillet as date,'
+                        . ' titreBillet as titre, contenuBillet as contenu from BILLET'
+                        . ' order by idBillet desc');
                 foreach ($billets as $billet):
                     ?>
                     <article>
@@ -24,6 +30,9 @@
                     <hr />
                 <?php endforeach; ?>
             </div> <!-- #contenu -->
-<?php
-include 'footer.php' ;
-?>
+            <footer id="piedBlog">
+                Blog réalisé avec PHP, HTML5 et CSS.
+            </footer>
+        </div> <!-- #global -->
+    </body>
+</html>
