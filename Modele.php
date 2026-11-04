@@ -21,7 +21,7 @@
 
                 function getCommentaires(){
                     $bdd = getBdD();
-                    $commentaires = $bdd->query('select idCommentaire, auteurCommentaire,'
-                            . ' contenuCommentaire, idBillet');
+                    $commentaires = $bdd->query('select idCommentaire as id, auteurCommentaire as auteur,'
+                            . ' contenuCommentaire as contenu, idBillet as billet from Commentaire');
                     return $commentaires;
                 }
