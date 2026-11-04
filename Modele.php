@@ -4,4 +4,5 @@
                     $billets = $bdd->query('select idBillet as id, dateBillet as date,'
                             . ' titreBillet as titre, contenuBillet as contenu from BILLET'
                             . ' order by idBillet desc');
+                    return $billets;
                 }
