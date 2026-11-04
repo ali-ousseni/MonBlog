@@ -1,17 +1,13 @@
 <?php
-                function getConnection(){
-                    try {
-                    $connexion = new PDO('mysql:host=localhost;dbname=monblog;charset=utf8','root', '');
-                    }
-                    catch(PDOException $e){
-                        die($e->getMessage());
-                    }                   
-                    return $connexion;
+                function getBdD(){
+                    $bdd = new PDO('mysql:host=localhost;dbname=monblog;charset=utf8','root', '');
+                        array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);            
+                    return $bdd;
                 }
 
                 function getBillets(){
-                    $connexion = getConnection();
-                    $billets = $connexion->query('select idBillet as id, dateBillet as date,'
+                    $bdd = getBdD();
+                    $billets = $bdd->query('select idBillet as id, dateBillet as date,'
                             . ' titreBillet as titre, contenuBillet as contenu from BILLET'
                             . ' order by idBillet desc');
                     return $billets;
