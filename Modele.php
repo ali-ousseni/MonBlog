@@ -15,7 +15,7 @@
 
                 function getBillet(){
                     $bdd = getBdD();
-                    $billet = $bdd->query('select idBillet');
+                    $billet = $bdd->query('select idBillet from Billet');
                     return $billet;
                 }
 
